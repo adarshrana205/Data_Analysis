@@ -7,16 +7,18 @@ Created on Wed Dec 11 13:03:42 2019
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
 headers=["symboling","normalized-losses","make","fuel-type","aspiration","num-of-doors","body-style","drive-wheels","engine-location","wheel-base","length","width","height","curb-weight","engine-type","num-of-cylinders","engine-size","fuel-system","bore","stroke","compression-ratio","horsepower","peak-rpm","city-mpg","highway-mpg","price"]
 df=pd.read_csv(path,header=None) #import data	
 # To export data we use "to_csv" method
-df.columns=headersg
+df.columns=headers
 print(df.head(5))
 print(df.dtypes)
 
-df["symboling"]=df["symbolin"]+1
+df["symboling"]=df["symboling"]+1
 print(df.head(5))
 
 # How to deal with missing values in data
@@ -43,7 +45,7 @@ print(df.describe(include="all")) # check statiscal summary
 # For categorical variables 
 drive_wheels_counts=df["drive-wheels"].value_counts()
 
-drive_wheels_counts.rename(columns={'drive-wheels':'value_counts'}inplace=True)
+drive_wheels_counts.rename(columns={'drive-wheels':'value_counts'},inplace=True)
 drive_wheels_counts.index.name='drive-wheels'
 
 #Box Plot for numeric values
@@ -53,6 +55,54 @@ sns.boxplot(x="drive-wheels",y="price",data=df)
 y=df["price"]#Dependent variable
 x=df["engine-size"]#Independent variable
 plt.scatter(x,y)
-plt.title("Scatterplot of engine-size and price)
-plt.xlaber("Engine Size")
+plt.title("Scatterplot of engine-size and price")
+plt.xlabel("Engine Size")
 plt.ylabel("Price")
+
+
+#GroupBy
+df_test=df['drive-wheels','body-style','price']
+df_grp=df_test.groupby(['drive-wheels','body-style'],as_index=False).mean()
+print(df_grp)
+
+#Easier to read we use use pivot table
+df_pivot=df_grp.pivot(index='drive-wheels',columns='body-style')
+#Another way to represent pivot table is using heatmap plot
+plt.pcolor(df_pivot,cmap='RdBBu')
+plt.colorbar()
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
