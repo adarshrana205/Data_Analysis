@@ -72,9 +72,16 @@ plt.pcolor(df_pivot,cmap='RdBBu')
 plt.colorbar()
 plt.show()
 
+#Correlation
+sns.regplot(x="engine-size",y="price",data=df)
+plt.ylim(0,) #positive correlation
 
 
+sns.regplot(x="highway-mpg",y="price",data=df)
+plt.ylim(0,) #negative correlation
 
+sns.regplot(x="peak-rpm",y="price",data=df)
+plt.ylim(0,) #weak correlation
 
 
 
