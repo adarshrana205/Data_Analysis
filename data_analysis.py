@@ -9,6 +9,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy import stats
+
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
 headers=["symboling","normalized-losses","make","fuel-type","aspiration","num-of-doors","body-style","drive-wheels","engine-location","wheel-base","length","width","height","curb-weight","engine-type","num-of-cylinders","engine-size","fuel-system","bore","stroke","compression-ratio","horsepower","peak-rpm","city-mpg","highway-mpg","price"]
@@ -82,6 +84,12 @@ plt.ylim(0,) #negative correlation
 
 sns.regplot(x="peak-rpm",y="price",data=df)
 plt.ylim(0,) #weak correlation
+
+#Correlation Statistical methods
+
+#Pearson Correlation(measure strength of correlation between  two features and gives two values 1:)Correlation coefficient 2:)P-value )
+Pearson_coef,p_value=stats.pearsonr[['horsepower'],df['price']]
+
 
 
 
