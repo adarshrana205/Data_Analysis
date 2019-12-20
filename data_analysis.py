@@ -91,6 +91,14 @@ plt.ylim(0,) #weak correlation
 Pearson_coef,p_value=stats.pearsonr[['horsepower'],df['price']]
 
 
+#ANOVA
+df_anova=df[["make","price"]]
+grouped_anova=df_anova.groupby["make"]
+anova_results_1=stats.f_oneway(grouped_anova.get_group("honda")["price"],grouped_anova.get_group("subaru")["price"])
+
+anova_results_1=stats.f_oneway(grouped_anova.get_group("honda")["price"],grouped_anova.get_group("jaguar")["price"])
+
+
 
 
 
