@@ -87,17 +87,19 @@ plt.ylim(0,) #weak correlation
 
 #Correlation Statistical methods
 
-#Pearson Correlation(measure strength of correlation between  two features and gives two values 1:)Correlation coefficient 2:)P-value )
+#Pearson Correlation(measure strength of correlation between two features and gives two values 1:)Correlation coefficient 2:)P-value )
 Pearson_coef,p_value=stats.pearsonr[['horsepower'],df['price']]
 
 
-#ANOVA
+#ANOVA(Analysis of variance used to find the correlation between different groups of a categorical variable
+#  and return two values the F-test score and the p-value )
 df_anova=df[["make","price"]]
 grouped_anova=df_anova.groupby["make"]
 anova_results_1=stats.f_oneway(grouped_anova.get_group("honda")["price"],grouped_anova.get_group("subaru")["price"])
+#(Small F value)
 
 anova_results_1=stats.f_oneway(grouped_anova.get_group("honda")["price"],grouped_anova.get_group("jaguar")["price"])
-
+#(Large F value i.e. strong correlation between a categorical variable and other variables )
 
 
 
