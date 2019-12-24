@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+from sklearn.linear_model import LinearRegression
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
@@ -102,6 +103,12 @@ anova_results_1=stats.f_oneway(grouped_anova.get_group("honda")["price"],grouped
 #(Large F value i.e. strong correlation between a categorical variable and other variables )
 
 
+#Simple linaer regression
+lm=LinearRegression()
+X=df[['highway-mpg']]
+Y=df[['price']]
+lm.fit(X,Y)
+Yhat=lm.predict(X)
 
 
 
