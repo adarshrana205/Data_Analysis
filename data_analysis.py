@@ -103,12 +103,17 @@ anova_results_1=stats.f_oneway(grouped_anova.get_group("honda")["price"],grouped
 #(Large F value i.e. strong correlation between a categorical variable and other variables )
 
 
-#Simple linaer regression
+#Simple linear regression
 lm=LinearRegression()
 X=df[['highway-mpg']]
 Y=df[['price']]
 lm.fit(X,Y)
 Yhat=lm.predict(X)
+
+#Multiple linear regression
+z=df[['horsepower','curb-weight','engine-size','highway-mpg']]
+lm.fit(z,df['price'])
+Yhat=lm.predict(z)
 
 
 
