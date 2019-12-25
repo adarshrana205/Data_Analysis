@@ -115,6 +115,10 @@ z=df[['horsepower','curb-weight','engine-size','highway-mpg']]
 lm.fit(z,df['price'])
 Yhat=lm.predict(z)
 
+#Model Evaluation using Visualization
+sns.regplot(x="highway-mpg",y="price",data=df)
+plt.ylim(0,)
+
 
 
 
