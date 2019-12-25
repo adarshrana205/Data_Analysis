@@ -119,6 +119,7 @@ Yhat=lm.predict(z)
 sns.regplot(x="highway-mpg",y="price",data=df)
 plt.ylim(0,)
 
+sns.residplot(df['highway-mpg'],df['price'])#Residual plot
 
 
 
