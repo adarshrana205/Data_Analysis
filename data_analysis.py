@@ -115,15 +115,15 @@ z=df[['horsepower','curb-weight','engine-size','highway-mpg']]
 lm.fit(z,df['price'])
 Yhat=lm.predict(z)
 
+
 #Model Evaluation using Visualization
 sns.regplot(x="highway-mpg",y="price",data=df)
 plt.ylim(0,)
 
-sns.residplot(df['highway-mpg'],df['price'])#Residual plot
+sns.residplot(df['highway-mpg'],df['price'])#Residual plot(residual plot represents the error between the actual value)
 
-ax1=sns.distplot(df['price'],hist=False,color='r',label='Actual Value')#Distribution Plot
+ax1=sns.distplot(df['price'],hist=False,color='r',label='Actual Value')#Distribution Plo(distribution plot counts the predicted value versus the actual value)
 sns.distplot(Yhat,hist=False,color='b',label='Fitted Values',ax=ax1)
-
 
 
 
