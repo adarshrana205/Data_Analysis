@@ -121,6 +121,10 @@ plt.ylim(0,)
 
 sns.residplot(df['highway-mpg'],df['price'])#Residual plot
 
+ax1=sns.distplot(df['price'],hist=False,color='r',label='Actual Value')#Distribution Plot
+sns.distplot(Yhat,hist=False,color='b',label='Fitted Values',ax=ax1)
+
+
 
 
 
