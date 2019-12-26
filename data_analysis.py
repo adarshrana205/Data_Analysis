@@ -123,18 +123,20 @@ plt.ylim(0,)
 
 sns.residplot(df['highway-mpg'],df['price'])#Residual plot(residual plot represents the error between the actual value)
 
-ax1=sns.distplot(df['price'],hist=False,color='r',label='Actual Value')#Distribution Plo(distribution plot counts the predicted value versus the actual value)
+ax1=sns.distplot(df['price'],hist=False,color='r',label='Actual Value')#Distribution Plot(distribution plot counts the predicted value versus the actual value)
 sns.distplot(Yhat,hist=False,color='b',label='Fitted Values',ax=ax1)
+
 
 #Polynimial Regression
 f=np.polyfit(x,y,3)
 p=np.polydl(f)
 print(p)
 
-#Polynimial Regression with more than one dimension
+
+
+#Polynimial Regression with more than one dimension(Numpy's polyfit function cannot perform this type of regression)
 pr=PolynomialFeatures(degree=2)
 x_polly=pr.fit_transform(x[['horsepower','curb-weight']],include_bias=false)
-
 
 
 
