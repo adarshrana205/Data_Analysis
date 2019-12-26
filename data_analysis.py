@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
@@ -129,6 +130,11 @@ sns.distplot(Yhat,hist=False,color='b',label='Fitted Values',ax=ax1)
 f=np.polyfit(x,y,3)
 p=np.polydl(f)
 print(p)
+
+#Polynimial Regression with more than one dimension
+pr=PolynomialFeatures(degree=2)
+x_polly=pr.fit_transform(x[['horsepower','curb-weight']],include_bias=false)
+
 
 
 
