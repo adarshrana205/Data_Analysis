@@ -139,6 +139,12 @@ pr=PolynomialFeatures(degree=2)
 x_polly=pr.fit_transform(x[['horsepower','curb-weight']],include_bias=false)
 
 
+#If Dimension gets larger
+SCALE=StandardScaler()
+SCALE.fit(x_data[['horsepower','highway-mpg']])
+x_scale=SCALE.transform(x_data[['horsepower','highway-mpg']])
+
+
 
 
 
