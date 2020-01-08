@@ -145,6 +145,13 @@ SCALE.fit(x_data[['horsepower','highway-mpg']])
 x_scale=SCALE.transform(x_data[['horsepower','highway-mpg']])
 
 
+#Pipeline
+Input=[('scale',StandardScaler()),('polynomial',PolynomialFeatures(degree=2)),('mode',LinearRegression())]
+pipe=pipeline(Input)
+pipe.train(X['horsepower','curb-weight','engine-size','highway-mpg'])
+yhat=pipe.predict(X[['horsepower','curb-weight','engine-size','highway-mpg']])
+
+
 
 
 
