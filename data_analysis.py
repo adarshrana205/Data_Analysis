@@ -12,6 +12,10 @@ import seaborn as sns
 from scipy import stats
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import pipeline 
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
