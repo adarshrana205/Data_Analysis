@@ -160,6 +160,8 @@ Y=df[['price']]
 lm.fit(X,Y)
 lm.score(X,Y)
 
+#Splitting training and testing data
+x_train,x_test,y_train,y_test=train_test_split(x_data,y_data,test_size=0.3,random_state=0)
 
 
 
