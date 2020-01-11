@@ -16,6 +16,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import pipeline 
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
@@ -166,6 +167,11 @@ lm.score(X,Y)
 
 #Splitting training and testing data
 x_train,x_test,y_train,y_test=train_test_split(x_data,y_data,test_size=0.3,random_state=0)
+
+#Cross Validations
+scores=cross_val_score(lm,x_data,y_data,cv=3)
+np.mean(scores)
+
 
 
 
