@@ -176,6 +176,17 @@ np.mean(scores)
 yhat=cross_val_predict(lm,x_data,y_data,cv=3)
 
 
+#Different r-squared values
+Rsqu_test=[]
+order=[1,2,3,4]
+for n in order:
+    pr=PolynomialFeatures(degree=n)
+    x_train_pr=pr.fit_transform(x_train[['horsepower']])
+    x_test_pr=pr.fit_transform(x_test[['horsepower']])
+    lm.fit(x_train_pr,y_train)
+    Rsqu_test.append(lm.score(x_test_pr,y_test))
+
+
 
 
 
