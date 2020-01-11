@@ -154,6 +154,11 @@ yhat=pipe.predict(X[['horsepower','curb-weight','engine-size','highway-mpg']])
 #Mean Squared Error(MSE)
 mean_squared_error(df['price'],Y_predict_simple_fit)
 
+#R-squared
+X=df[['highway-mpg']]
+Y=df[['price']]
+lm.fit(X,Y)
+lm.score(X,Y)
 
 
 
