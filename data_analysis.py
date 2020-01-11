@@ -17,6 +17,7 @@ from sklearn.pipeline import pipeline
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import cross_val_predict
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
@@ -171,7 +172,8 @@ x_train,x_test,y_train,y_test=train_test_split(x_data,y_data,test_size=0.3,rando
 #Cross Validations
 scores=cross_val_score(lm,x_data,y_data,cv=3)
 np.mean(scores)
-
+#For prediction(actual predicted values)
+yhat=cross_val_predict(lm,x_data,y_data,cv=3)
 
 
 
