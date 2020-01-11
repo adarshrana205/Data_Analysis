@@ -151,6 +151,9 @@ pipe=pipeline(Input)
 pipe.train(X['horsepower','curb-weight','engine-size','highway-mpg'])
 yhat=pipe.predict(X[['horsepower','curb-weight','engine-size','highway-mpg']])
 
+#Mean Squared Error(MSE)
+mean_squared_error(df['price'],Y_predict_simple_fit)
+
 
 
 
