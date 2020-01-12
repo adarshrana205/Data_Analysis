@@ -18,6 +18,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
+from sklearn.linear_model import Ridge
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
@@ -185,7 +186,12 @@ for n in order:
     x_test_pr=pr.fit_transform(x_test[['horsepower']])
     lm.fit(x_train_pr,y_train)
     Rsqu_test.append(lm.score(x_test_pr,y_test))
-
+    
+    
+#Ridge Regression
+Ridgemcross_val_predictodel=Ridge(alpha=0.1)
+Ridgemodel.fit(x,y)
+Yhat=Ridgemodel.predict(x)
 
 
 
