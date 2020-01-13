@@ -19,6 +19,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
 from sklearn.linear_model import Ridge
+from sklearn.model_selection import GridSearchCV
 
 path="https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
@@ -193,7 +194,14 @@ Ridgemcross_val_predictodel=Ridge(alpha=0.1)
 Ridgemodel.fit(x,y)
 Yhat=Ridgemodel.predict(x)
 
-
+#Grid Search
+parameters=[{'alpha':[0.001,0.1,1,10,100,1000,10000]}]
+RR=Ridge()
+Grid1=GridSearchCV(RR,parameters,cv=4)
+Grid1.fit(x_data[['horsepower','curb-weight','engine-size','highway-mpg']],y_data)
+Grid1.best_estimator_
+scores=Grid1.cv_results_
+scores['mean_test_score']
 
 
 
